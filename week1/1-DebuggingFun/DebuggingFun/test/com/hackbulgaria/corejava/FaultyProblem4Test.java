@@ -12,16 +12,17 @@ public class FaultyProblem4Test {
             for (int j = 3; j < i * 17; j++) {
                 float a = (float) i / j;
                 float b = 1 / ((float) j / i);
-                System.out.println(a + ", " + b);
-                assertTrue(FaultyProblem4.areEqual(a, b));
+//                System.out.println(a + ", " + b + ", i = " + i + ", j = " + j);
+                Boolean result = FaultyProblem4.areEqual(a, b);
+                assertTrue(result);
             }
         }
     }
     
     @Test
     public void testAgainFloats(){
-        assertTrue(FaultyProblem4.areEqual(0/6, 0/5));
-        assertTrue(FaultyProblem4.areEqual(401/399, 1/(399/401)));
+        assertTrue(FaultyProblem4.areEqual(0/6f, 0/5f));
+        assertTrue(FaultyProblem4.areEqual(401f/399f, 1/(399f/401f)));
     }
 
     @Test
@@ -29,9 +30,7 @@ public class FaultyProblem4Test {
         assertTrue(FaultyProblem4.areEqual(4, 4));
         assertTrue(FaultyProblem4.areEqual(0, 0));
         assertTrue(FaultyProblem4.areEqual(500, 500));
-
-        // Защо са верни горните, а този тест фейлва? ^^^
-        assertTrue(FaultyProblem4.areEqual(new Integer(511), (Integer) 511));
+        assertTrue(FaultyProblem4.areEqual(new Integer(511), (Integer)511));
     }
     
     @Test

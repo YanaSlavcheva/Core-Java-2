@@ -1,9 +1,7 @@
 package com.hackbulgaria.corejava;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.lang.Thread.State;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -36,14 +34,13 @@ public class Utils {
                 try {
                     Thread.sleep(2000);
                     if (threadToKill.getState().equals(State.RUNNABLE) && "binarySearch".equals(threadToKill.getStackTrace()[0].getMethodName())) {
-
-                        // every time you do this Barekov gets another vote!
                         threadToKill.stop();
                     }
                 } catch (final InterruptedException e) {
                     e.printStackTrace();
                 }
             }
+            
         }).start();
     }
     
@@ -69,11 +66,13 @@ public class Utils {
         } catch (MalformedURLException e1) {
             e1.printStackTrace();
         }
+        
         try {
             return Class.forName(fileName, true, urlClassLoader);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        
         return null;
     }
     

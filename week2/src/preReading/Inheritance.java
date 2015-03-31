@@ -17,5 +17,4 @@ public class Inheritance {
 		}
 	}
 	Base a = new Derived();
-	a.
 }

@@ -3,6 +3,7 @@ package com.hackbulgaria.corejava;
 
 public class FaultyProblem5 {
     public static long kthFac(int k, int n) {
+    	k--;
         long res = 1;
         long limit = n;
         for (long i = 2; i <= limit; i++) {
@@ -12,7 +13,10 @@ public class FaultyProblem5 {
                 limit = res;
             }
         }
+        
         return res;
-    }
-    
+    }   
 }
+
+
+
